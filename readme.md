@@ -16,7 +16,7 @@ npm run dev
 npm run build
 
 
-![image](https://watch.screencastify.com/v/Cptsj6rLzzbdkPbqVcbI)
+https://watch.screencastify.com/v/Cptsj6rLzzbdkPbqVcbI
 
 ```
 
