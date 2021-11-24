@@ -11,7 +11,7 @@ const infoColor = (_message) =>
 module.exports = merge(
     commonConfiguration,
     {
-        mode: 'development',
+        mode: 'development', 
         devServer:
         {
             host: '0.0.0.0',
