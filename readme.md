@@ -1,5 +1,5 @@
 # Three.js Starter
-Courtesy of Bruno Simon of https://threejs-journey.xyz/
+ Preview here: https://arand013.github.io/intro-page-three.js/
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
