@@ -14,6 +14,9 @@ npm run dev
 
 # Build for production in the dist/ directory
 npm run build
+
+
+![image](https://watch.screencastify.com/v/Cptsj6rLzzbdkPbqVcbI.mp4)
+
 ```
 
-https://watch.screencastify.com/v/Cptsj6rLzzbdkPbqVcbI
