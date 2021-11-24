@@ -32,6 +32,9 @@ body {
     width: 100%;
     padding-top: 3em;
     position: relative;
+    color: rgb(250, 221, 177);
+    opacity: 67%;
+    stroke-opacity: initial;
 }
 
 .content:before {
@@ -39,8 +42,9 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100;
-    border-bottom: 1px solid white;
+    width: 100%;
+    border-bottom: 1px solid rgb(228, 31, 31);
+    opacity: 67%;
     transform: scaleX(1);
 }
 

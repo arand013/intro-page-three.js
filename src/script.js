@@ -44,9 +44,10 @@ const material = new THREE.PointsMaterial({
 })
 
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.0065,
+    size: 0.01,
     map: cross,
     transparent: true,
+    color: "lightblue"
 
 })
 
@@ -107,7 +108,7 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-renderer.setClearColor(new THREE.Color('#21282a'), 1)
+renderer.setClearColor(new THREE.Color('#000000'), 1)
 
 
 // Mouse 
