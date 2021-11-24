@@ -15,14 +15,28 @@ const scene = new THREE.Scene()
 // Objects
 const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
 
+
+const particlesGeometry = new THREE.BufferGeometry;
+const particlesCnt = 5000;
+
+const posArray = new Float32Array(particlesCnt * 3); 
+// xyz, xyz, xyz, xyz, 
+
+for (let i = 0; i < particlesCnt * 3; i++) {
+    posArray[i] = Math.random() 
+}
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3))
+
 // Materials
 
-const material = new THREE.MeshBasicMaterial()
-material.color = new THREE.Color(0xff0000)
+const material = new THREE.PointsMaterial({
+    size: 0.0065
+}) 
 
 // Mesh
-const sphere = new THREE.Mesh(geometry,material)
-scene.add(sphere)
+const sphere = new THREE.Points(geometry,material)
+const particleMesh = new THREE.Points(particlesGeometry, material)
+scene.add(sphere, particleMesh)
 
 // Lights
 
