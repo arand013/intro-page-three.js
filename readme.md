@@ -15,4 +15,5 @@ npm run dev
 # Build for production in the dist/ directory
 npm run build
 ```
-<video src="https://watch.screencastify.com/v/Cptsj6rLzzbdkPbqVcbI"> Alternant Test </video>
+
+https://watch.screencastify.com/v/Cptsj6rLzzbdkPbqVcbI
