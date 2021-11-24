@@ -2,6 +2,12 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
+import { mapLinear } from 'three/src/math/MathUtils';
+
+// Textture Loader
+
+const loader = new THREE.TextureLoader()
+const cross = loader.load('./crosss.png')
 
 // Debug
 const gui = new dat.GUI()
@@ -13,30 +19,41 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 // Objects
-const geometry = new THREE.TorusGeometry( .7, .2, 16, 100 );
+const geometry = new THREE.TorusGeometry(.7, .2, 16, 100);
 
 
 const particlesGeometry = new THREE.BufferGeometry;
 const particlesCnt = 5000;
 
-const posArray = new Float32Array(particlesCnt * 3); 
+const posArray = new Float32Array(particlesCnt * 3);
 // xyz, xyz, xyz, xyz, 
 
 for (let i = 0; i < particlesCnt * 3; i++) {
-    posArray[i] = Math.random() 
+    // posArray[i] = Math.random() 
+    // posArray[i] = Math.random() - 0.5 
+    // posArray[i] = (Math.random() - 0.5 ) * 5
+    posArray[i] = (Math.random() - 0.5) * (Math.random() * 5)
+
 }
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3))
 
 // Materials
 
 const material = new THREE.PointsMaterial({
-    size: 0.0065
-}) 
+    size: 0.005
+})
+
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.0065,
+    map: cross,
+    transparent: true,
+
+})
 
 // Mesh
-const sphere = new THREE.Points(geometry,material)
-const particleMesh = new THREE.Points(particlesGeometry, material)
-scene.add(sphere, particleMesh)
+const sphere = new THREE.Points(geometry, material)
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial)
+scene.add(sphere, particlesMesh)
 
 // Lights
 
@@ -54,8 +71,7 @@ const sizes = {
     height: window.innerHeight
 }
 
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
@@ -91,20 +107,33 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.setClearColor(new THREE.Color('#21282a'), 1)
 
+
+// Mouse 
+
+document.addEventListener('mousemove', animateParticles)
+
+let mouseX = 0
+let mouseY = 0
+
+function animateParticles(event) {
+    mouseY = event.clientY
+    mouseX = event.clientX
+}
 /**
  * Animate
  */
 
 const clock = new THREE.Clock()
 
-const tick = () =>
-{
+const tick = () => {
 
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
     sphere.rotation.y = .5 * elapsedTime
+    particlesMesh.rotation.y = mouseY * (elapsedTime)
 
     // Update Orbital Controls
     // controls.update()
