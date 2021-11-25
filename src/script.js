@@ -152,3 +152,7 @@ const tick = () => {
 }
 
 tick()
+
+// If it DOES NOT RUN type this in the file terminal!!!!!!!
+
+// export NODE_OPTIONS=--openssl-legacy-provider
