@@ -1,6 +1,6 @@
 {
   "repository": "#",
-  "license": "UNLICENSED",
+  "license": "MIT-License",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "build": "webpack --config ./bundler/webpack.prod.js",
