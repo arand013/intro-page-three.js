@@ -7,7 +7,7 @@ import { mapLinear } from 'three/src/math/MathUtils';
 // Textture Loader
 
 const loader = new THREE.TextureLoader()
-const cross = loader.load('./crosss.png')
+const cross = loader.load('./crosss.png');
 
 // Debug
 const gui = new dat.GUI()
@@ -138,8 +138,8 @@ const tick = () => {
 
 
     if (mouseX > 0) {
-        particlesMesh.rotation.x = -mouseY * (elapsedTime * .00015)
-        particlesMesh.rotation.y = -mouseX * (elapsedTime * .00015)
+        particlesMesh.rotation.x = -mouseY * (elapsedTime * .000075)
+        particlesMesh.rotation.y = -mouseX * (elapsedTime * .000075)
     }
     // Update Orbital Controls
     // controls.update()
@@ -153,6 +153,8 @@ const tick = () => {
 
 tick()
 
+/*
 // If it DOES NOT RUN type this in the file terminal!!!!!!!
 
 // export NODE_OPTIONS=--openssl-legacy-provider
+*/ 
