@@ -2,12 +2,11 @@ import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
-import { mapLinear } from 'three/src/math/MathUtils';
 
 // Textture Loader
 
 const loader = new THREE.TextureLoader()
-const cross = loader.load('./crosss.png');
+const cross = loader.load('./image.png');
 
 // Debug
 const gui = new dat.GUI()
@@ -44,10 +43,10 @@ const material = new THREE.PointsMaterial({
 })
 
 const particlesMaterial = new THREE.PointsMaterial({
-    size: 0.01,
+    size: 0.1,
     map: cross,
     transparent: true,
-    color: "lightblue"
+    color: "red"
 
 })
 
